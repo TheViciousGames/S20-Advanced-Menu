@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">S20 Advanced Menu Trial</string>
+    <string name="boost">Boost</string>
+    <string name="recovery">recovery</string>
+    <string name="reboot">reboot</string>
+    <string name="download">download</string>
+    <string name="resolution">Resolution</string>
+    <string name="hd">hd+</string>
+    <string name="fhd">fhd+</string>
+    <string name="wqhd">wqhd+</string>
+    <string name="staticrefreshrate">Static Refresh Rate </string>
+    <string name="fourthy">48</string>
+    <string name="sixty">60</string>
+    <string name="ninety">96</string>
+    <string name="hundred">120</string>
+    <string name="adaptiverefreshrate">Adaptive Refresh Rate</string>
+    <string name="disable">disable</string>
+    <string name="enable">enable</string>
+    <string name="powersavingmode">Power Saving Mode</string>
+    <string name="adbdebugging">ADB Debugging</string>
+
+</resources>

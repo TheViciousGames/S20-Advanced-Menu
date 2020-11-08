@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="800dp">
+
+        <Button
+            android:id="@+id/boostButton"
+            android:layout_width="100dp"
+            android:layout_height="45dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="60dp"
+            android:text="@string/boost"
+            android:textColor="#ffff" />
+
+        <Button
+            android:id="@+id/boostHelpButton"
+            android:layout_width="23dp"
+            android:layout_height="25dp"
+            android:layout_marginTop="30dp"
+            android:layout_toEndOf="@id/boostButton"
+            android:background="@drawable/qm" />
+
+        <Button
+            android:id="@+id/rebootButton"
+            android:layout_width="100dp"
+            android:layout_height="45dp"
+            android:layout_below="@id/boostButton"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"
+            android:text="@string/reboot"
+            android:textColor="#ffff" />
+
+        <Button
+            android:id="@+id/rebootHelpButton"
+            android:layout_width="23dp"
+            android:layout_height="25dp"
+            android:layout_below="@id/boostButton"
+            android:layout_toEndOf="@id/rebootDownloadButton"
+            android:background="@drawable/qm" />
+
+        <Button
+            android:id="@+id/rebootRecoveryButton"
+            android:layout_width="120dp"
+            android:layout_height="45dp"
+            android:layout_below="@id/boostButton"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"
+            android:layout_toStartOf="@id/rebootButton"
+            android:text="@string/recovery"
+            android:textColor="#ffff" />
+
+        <Button
+            android:id="@+id/rebootDownloadButton"
+            android:layout_width="120dp"
+            android:layout_height="45dp"
+            android:layout_below="@id/boostButton"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"
+            android:layout_toEndOf="@id/boostButton"
+            android:text="@string/download"
+            android:textColor="#ffff" />
+
+        <TextView
+            android:id="@+id/resolutionTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/rebootButton"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="40dp"
+            android:text="@string/resolution"
+            android:textSize="23sp" />
+
+        <Button
+            android:id="@+id/resolutionHelpButton"
+            android:layout_width="23dp"
+            android:layout_height="25dp"
+            android:layout_below="@id/rebootButton"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="30dp"
+            android:layout_toEndOf="@id/resolutionTitle"
+            android:background="@drawable/qm" />
+
+
+        <com.google.android.material.button.MaterialButtonToggleGroup
+            android:id="@+id/resolutionToggleGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/resolutionTitle"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15dp"
+            app:selectionRequired="true"
+            app:singleSelection="true">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/hdButton"
+                style="?attr/materialButtonOutlinedStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/hd" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/fhdButton"
+                style="?attr/materialButtonOutlinedStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/fhd" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/wqhdButton"
+                style="?attr/materialButtonOutlinedStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/wqhd" />
+
+
+        </com.google.android.material.button.MaterialButtonToggleGroup>
+
+        <TextView
+            android:id="@+id/refreshRateTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/resolutionToggleGroup"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="40dp"
+            android:text="@string/staticrefreshrate"
+            android:textSize="23sp" />
+
+        <Button
+            android:id="@+id/refreshRateHelpButton"
+            android:layout_width="23dp"
+            android:layout_height="25dp"
+            android:layout_below="@id/resolutionToggleGroup"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="30dp"
+            android:layout_toEndOf="@id/refreshRateTitle"
+            android:background="@drawable/qm" />
+
+        <com.google.android.material.button.MaterialButtonToggleGroup
+            android:id="@+id/refreshRateToggleGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/refreshRateTitle"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15dp"
+            app:selectionRequired="true"
+            app:singleSelection="true">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/fourthyHzButton"
+                style="?attr/materialButtonOutlinedStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checkable="false"
+                android:text="@string/fourthy" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/sixtyHzButton"
+                style="?attr/materialButtonOutlinedStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/sixty" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/ninetyHzButton"
+                style="?attr/materialButtonOutlinedStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/ninety" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/hundredHzButton"
+                style="?attr/materialButtonOutlinedStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/hundred" />
+
+        </com.google.android.material.button.MaterialButtonToggleGroup>
+
+        <TextView
+            android:id="@+id/adaptiveRefreshRateTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/refreshRateToggleGroup"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="40dp"
+            android:text="@string/adaptiverefreshrate"
+            android:textSize="23sp" />
+
+        <Button
+            android:id="@+id/adaptiveRefreshRateHelpButton"
+            android:layout_width="23dp"
+            android:layout_height="25dp"
+            android:layout_below="@id/refreshRateToggleGroup"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="30dp"
+            android:layout_toEndOf="@id/adaptiveRefreshRateTitle"
+            android:background="@drawable/qm" />
+
+        <com.google.android.material.button.MaterialButtonToggleGroup
+            android:id="@+id/adaptiveRefreshRateToggleGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/adaptiveRefreshRateTitle"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15dp"
+            app:selectionRequired="true"
+            app:singleSelection="true">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/adaptiveDisabledButton"
+                style="?attr/materialButtonOutlinedStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/disable" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/adaptiveEnabledButton"
+                style="?attr/materialButtonOutlinedStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/enable" />
+
+        </com.google.android.material.button.MaterialButtonToggleGroup>
+
+        <TextView
+            android:id="@+id/powerSavingRateTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/adaptiveRefreshRateToggleGroup"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="40dp"
+            android:text="@string/powersavingmode"
+            android:textSize="23sp" />
+
+        <Button
+            android:id="@+id/powerSaverHelpButton"
+            android:layout_width="23dp"
+            android:layout_height="25dp"
+            android:layout_below="@id/adaptiveRefreshRateToggleGroup"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="30dp"
+            android:layout_toEndOf="@id/powerSavingRateTitle"
+            android:background="@drawable/qm" />
+
+        <com.google.android.material.button.MaterialButtonToggleGroup
+            android:id="@+id/powerSavingToggleGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/powerSavingRateTitle"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15dp"
+            app:selectionRequired="true"
+            app:singleSelection="true">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/powerSaverDisabledButton"
+                style="?attr/materialButtonOutlinedStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/disable" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/powerSaverEnabledButton"
+                style="?attr/materialButtonOutlinedStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/enable" />
+
+
+        </com.google.android.material.button.MaterialButtonToggleGroup>
+
+        <TextView
+            android:id="@+id/adbTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/powerSavingToggleGroup"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="40dp"
+            android:text="@string/adbdebugging"
+            android:textSize="23sp" />
+
+        <Button
+            android:id="@+id/adbDebuggingHelpButton"
+            android:layout_width="23dp"
+            android:layout_height="25dp"
+            android:layout_below="@id/powerSavingToggleGroup"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="30dp"
+            android:layout_toEndOf="@id/adbTitle"
+            android:background="@drawable/qm" />
+
+        <com.google.android.material.button.MaterialButtonToggleGroup
+            android:id="@+id/adbDebuggingToggleGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/adbTitle"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15dp"
+            app:selectionRequired="true"
+            app:singleSelection="true">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/adbDebuggingDisabledButton"
+                style="?attr/materialButtonOutlinedStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/disable" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/adbDebuggingEnabledButton"
+                style="?attr/materialButtonOutlinedStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/enable" />
+
+        </com.google.android.material.button.MaterialButtonToggleGroup>
+
+        <Button
+            android:id="@+id/debugButton"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="800dp"
+            android:text="DEBUG"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/debugTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/debugButton" />
+    </RelativeLayout>
+</ScrollView>
