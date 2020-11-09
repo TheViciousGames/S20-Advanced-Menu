@@ -1,13 +1,17 @@
 package com.theviciousgames.s20advancedmenutrial;
 
-
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -16,18 +20,18 @@ import com.google.android.material.button.MaterialButtonToggleGroup;
 
 public class MainActivity extends AppCompatActivity {
 
-    private MaterialButtonToggleGroup resolutionToggleGroup, refreshRateToggleGroup, adaptiveRefreshRateToggleGroup, powerSavingToggleGroup, adbDebuggingToggleGroup;
+    private MaterialButtonToggleGroup resolutionToggleGroup, refreshRateToggleGroup, adaptiveRefreshRateToggleGroup, powerSavingToggleGroup, adbDebuggingToggleGroup,fourthyHzLockscreenToggleGroup;
     private MaterialButton setResolutionHDButton, setResolutionFHDButton, setResolutionWQHDButton,
             setRefreshRate48Button, setRefreshRate60Button, setRefreshRate96Button, setRefreshRate120Button,
             adaptiveRefreshRateEnableButton, adaptiveRefreshRateDisableButton,
             powerSavingEnableButton, powerSavingDisableButton,
-            adbDebuggingEnableButton, adbDebuggingDisableButton;
+            adbDebuggingEnableButton, adbDebuggingDisableButton,
+            fourthyHzLockScreenEnableButton,fourthyHzLockScreenDisableButton;
 
     private int initializeRefreshRate;
     private String initializeResolution;
-    private boolean initializePowerSaverStatus, initializeAdaptiveRefreshRateStatus, initializeADBStatus;
-    private TextView debugTextView;
-    private Button debugButton, boostButton, rebootRecoveryButton, rebootDownloadButton, rebootButton, boostHelpButton, rebootHelpButton, resolutionHelpButton, refreshRateHelpButton, adaptiveRefreshRateHelpButton, powerSaverHelpButton, adbDebuggingHelpButton;
+    private boolean initializePowerSaverStatus, initializeAdaptiveRefreshRateStatus, initializeADBStatus,fourthyHzLockScreenStatus;
+    private Button  boostButton, rebootRecoveryButton, rebootDownloadButton, rebootButton, boostHelpButton, rebootHelpButton, resolutionHelpButton, refreshRateHelpButton, adaptiveRefreshRateHelpButton, powerSaverHelpButton, adbDebuggingHelpButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,8 +41,6 @@ public class MainActivity extends AppCompatActivity {
         initializeToogles();
         buttonFunctions();
     }
-
-
     protected void declareObjects() {
         resolutionToggleGroup = findViewById(R.id.resolutionToggleGroup);
         setResolutionHDButton = resolutionToggleGroup.findViewById(R.id.hdButton);
@@ -63,9 +65,15 @@ public class MainActivity extends AppCompatActivity {
         adbDebuggingEnableButton = findViewById(R.id.adbDebuggingEnabledButton);
         adbDebuggingDisableButton = findViewById(R.id.adbDebuggingDisabledButton);
 
+        fourthyHzLockscreenToggleGroup=findViewById(R.id.fourthyHzLockScreenToggleGroup);
+        fourthyHzLockScreenEnableButton=findViewById(R.id.fourthyHzLockScreenEnabledButton);
+        fourthyHzLockScreenDisableButton=findViewById(R.id.fourthyHzLockScreenDisabledButton);
+
         rebootButton = findViewById(R.id.rebootButton);
         rebootDownloadButton = findViewById(R.id.rebootDownloadButton);
         rebootRecoveryButton = findViewById(R.id.rebootRecoveryButton);
+
+
 
         boostHelpButton = findViewById(R.id.boostHelpButton);
         rebootHelpButton = findViewById(R.id.rebootHelpButton);
@@ -77,10 +85,8 @@ public class MainActivity extends AppCompatActivity {
 
         boostButton = findViewById(R.id.boostButton);
 
-        debugButton = findViewById(R.id.debugButton);
-        debugTextView = findViewById(R.id.debugTextView);
-    }
 
+    }
     protected void initializeToogles() {
         Intent intent = getIntent();
         initializeRefreshRate = intent.getIntExtra("RefreshRate", 0);
@@ -88,6 +94,7 @@ public class MainActivity extends AppCompatActivity {
         initializeAdaptiveRefreshRateStatus = intent.getBooleanExtra("AdaptiveRefreshRate", false);
         initializePowerSaverStatus = intent.getBooleanExtra("PowerSaverStatus", false);
         initializeADBStatus = intent.getBooleanExtra("ADBStatus", false);
+        fourthyHzLockScreenStatus= getApplicationContext().getSharedPreferences("Settings", Context.MODE_PRIVATE).getBoolean("48HzLockScreenStatus",false);
 
 
         switch (initializeResolution) {
@@ -155,8 +162,22 @@ public class MainActivity extends AppCompatActivity {
             adbDebuggingToggleGroup.uncheck(R.id.adbDebuggingEnabledButton);
             adbDebuggingToggleGroup.check(R.id.adbDebuggingDisabledButton);
         }
-    }
 
+        if(fourthyHzLockScreenStatus)
+        {
+            fourthyHzLockscreenToggleGroup.check(R.id.fourthyHzLockScreenEnabledButton);
+            fourthyHzLockscreenToggleGroup.uncheck(R.id.fourthyHzLockScreenDisabledButton);
+            Intent serviceIntent=new Intent(MainActivity.this,ScreenStatusService.class);
+            startForegroundService(serviceIntent);
+        }
+        else
+        {
+            fourthyHzLockscreenToggleGroup.uncheck(R.id.fourthyHzLockScreenEnabledButton);
+            fourthyHzLockscreenToggleGroup.check(R.id.fourthyHzLockScreenDisabledButton);
+            Intent serviceIntent=new Intent(MainActivity.this,ScreenStatusService.class);
+            stopService(serviceIntent);
+        }
+    }
     protected void buttonFunctions() {
         boostHelpButton.setOnClickListener(new View.OnClickListener() {
 
@@ -453,7 +474,31 @@ public class MainActivity extends AppCompatActivity {
                 Tools.reboot("3");
             }
         });
+
+        fourthyHzLockScreenEnableButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                SharedPreferences preferences = getApplicationContext().getSharedPreferences("Settings", android.content.Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor =preferences.edit();
+                editor.putBoolean("48HzLockScreenStatus", true);
+                editor.apply();
+                fourthyHzLockScreenStatus= getApplicationContext().getSharedPreferences("Settings", Context.MODE_PRIVATE).getBoolean("48HzLockScreenStatus",false);
+                System.out.println(fourthyHzLockScreenStatus);
+            }
+        });
+        fourthyHzLockScreenDisableButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                SharedPreferences preferences = getApplicationContext().getSharedPreferences("Settings", android.content.Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor =preferences.edit();
+                editor.putBoolean("48HzLockScreenStatus", false);
+                editor.apply();
+                fourthyHzLockScreenStatus= getApplicationContext().getSharedPreferences("Settings", Context.MODE_PRIVATE).getBoolean("48HzLockScreenStatus",false);
+                System.out.println(fourthyHzLockScreenStatus);
+            }
+        });
     }
+
 }
 
 

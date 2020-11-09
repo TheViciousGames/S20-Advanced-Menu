@@ -1,6 +1,8 @@
 package com.theviciousgames.s20advancedmenutrial;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,12 +16,12 @@ public class SplashScreen extends AppCompatActivity {
     private int refreshRate;
     private String resolution;
     private Boolean adaptiveRefreshRateStatus, powerSaverStatus, adbStatus;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
         startMainActivity();
+
     }
 
     protected void startMainActivity() {
@@ -46,7 +48,6 @@ public class SplashScreen extends AppCompatActivity {
         adaptiveRefreshRateStatus = false;
         powerSaverStatus = Tools.getPowerSaverStatus();
         adbStatus = Tools.getADBStatus();
+
     }
-
-
 }

@@ -322,19 +322,52 @@
 
         </com.google.android.material.button.MaterialButtonToggleGroup>
 
-        <Button
-            android:id="@+id/debugButton"
-            android:layout_width="100dp"
-            android:layout_height="50dp"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="800dp"
-            android:text="DEBUG"
-            android:visibility="gone" />
 
         <TextView
-            android:id="@+id/debugTextView"
+            android:id="@+id/fourthyHzLockScreenToggleTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/debugButton" />
+            android:layout_below="@id/adbDebuggingToggleGroup"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="40dp"
+            android:text="@string/fourthyHzLockScreen"
+            android:textSize="23sp" />
+
+        <Button
+            android:id="@+id/fourthyHzLockScreenToggleHelpButton"
+            android:layout_width="23dp"
+            android:layout_height="25dp"
+            android:layout_below="@id/powerSavingToggleGroup"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="30dp"
+            android:layout_toEndOf="@id/adbTitle"
+            android:background="@drawable/qm" />
+
+        <com.google.android.material.button.MaterialButtonToggleGroup
+            android:id="@+id/fourthyHzLockScreenToggleGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/fourthyHzLockScreenToggleTitle"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15dp"
+            app:selectionRequired="true"
+            app:singleSelection="true">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/fourthyHzLockScreenDisabledButton"
+                style="?attr/materialButtonOutlinedStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/disable" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/fourthyHzLockScreenEnabledButton"
+                style="?attr/materialButtonOutlinedStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/enable" />
+
+        </com.google.android.material.button.MaterialButtonToggleGroup>
+
     </RelativeLayout>
 </ScrollView>

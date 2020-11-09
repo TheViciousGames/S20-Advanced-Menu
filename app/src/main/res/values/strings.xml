@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">S20 Advanced Menu Trial</string>
+    <string name="app_name">S20 Advanced Menu Free</string>
     <string name="boost">Boost</string>
     <string name="recovery">recovery</string>
     <string name="reboot">reboot</string>
@@ -18,5 +18,6 @@
     <string name="enable">enable</string>
     <string name="powersavingmode">Power Saving Mode</string>
     <string name="adbdebugging">ADB Debugging</string>
+    <string name="fourthyHzLockScreen">48hz on Lockscreen</string>
 
 </resources>
