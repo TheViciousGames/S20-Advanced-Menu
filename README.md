@@ -11,3 +11,7 @@ If you hate Google and want to buy the full version: https://discord.com/invite/
 Paypal: paypal.me/tulituvlad
 
 Website: theviciousgames.com
+
+
+
+Disabled and arrogant people like "Mucky2" and "keaheng" are not allowed on this repository.
