@@ -6,7 +6,7 @@ Full Project on Master branch.
 CHANGELOG:
 -Added 48Hz on lockscreen toggle.
 
-Play Store Link:https://play.google.com/store/apps/details?id=com.theviciousgames.s20advancedmenu
+Play Store Link: https://play.google.com/store/apps/details?id=com.theviciousgames.s20advancedmenu
 
 If you hate Google and want to buy the full version: https://discord.com/invite/kKX6TUf
 
