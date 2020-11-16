@@ -1,19 +1,23 @@
 # S20-Advanced-Menu
-Limited version of "S20 Advance Menu" - Source Code
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="hidden" name="hosted_button_id" value="RGQ8NSYPA59FL">
+<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+<img alt="" border="0" src="https://www.paypalobjects.com/pt_BR/i/scr/pixel.gif" width="1" height="1">
+</form>
 
-Full Project on Master branch.
+Limited version of "S20 Advance Menu"-Source Code <br/>
+Full project can be found on master branch.
 
-CHANGELOG:
--Added 48Hz on lockscreen toggle.
+If you want to help:
 
-Play Store Link: https://play.google.com/store/apps/details?id=com.theviciousgames.s20advancedmenu
+1.Download app <br/>
+[<img src="https://play.google.com/intl/en_us/badges/images/generic/en-play-badge.png"
+    alt="Get it on Google Play"
+    height="90">](https://play.google.com/store/apps/details?id=com.theviciousgames.s20advancedmenu)<br/>
+2.After a few days leave a good review.
 
-If you hate Google and want to buy the full version: https://discord.com/invite/kKX6TUf
-
-Paypal: paypal.me/tulituvlad
+Paypal: paypal.me/tulituvlad <br/>
+[![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://paypal.me/tulituvlad)
 
 Website: theviciousgames.com
-
-
-
-Disabled and arrogant people like "Mucky2" and "keaheng" are not allowed on this repository.
